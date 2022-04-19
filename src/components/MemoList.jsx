@@ -1,41 +1,59 @@
 import React from 'react';
 import {
-   View, Text, StyleSheet, TouchableOpacity,
+   View, Text, StyleSheet, TouchableOpacity, Alert,
    } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function MemoList() {
+  const navigation = useNavigation();
   return (
     <View>
-      <View style={styles.memoListItem}>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text sytle={styles.memoListItemTitle}>買い物リスト</Text>
           <Text sytle={styles.memoListItemDate}>2022/12/12</Text>
         </View>
-        <TouchableOpacity>
-          <AntDesign name="close" size={16} color="#B0B0B0" />
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('Are you sure?'); }}
+        >
+          <AntDesign name="close" size={24} color="#B0B0B0" />
         </TouchableOpacity>
-      </View>
-
-      <View style={styles.memoListItem}>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text sytle={styles.memoListItemTitle}>買い物リスト</Text>
           <Text sytle={styles.memoListItemDate}>2022/12/12</Text>
         </View>
-        <TouchableOpacity>
-          <AntDesign name="close" size={16} color="#B0B0B0" />
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('Are you sure?'); }}
+        >
+          <AntDesign name="close" size={24} color="#B0B0B0" />
         </TouchableOpacity>
-      </View>
-
-      <View style={styles.memoListItem}>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text sytle={styles.memoListItemTitle}>買い物リスト</Text>
           <Text sytle={styles.memoListItemDate}>2022/12/12</Text>
         </View>
-        <TouchableOpacity>
-          <AntDesign name="close" size={16} color="#B0B0B0" />
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('Are you sure?'); }}
+        >
+          <AntDesign name="close" size={24} color="#B0B0B0" />
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -60,20 +78,7 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: '#848484',
   },
-  circleButton: {
-    backgroundColor: 'blue',
-    height: 64,
-    width: 64,
-    borderRadius: 32,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    right: 40,
-    bottom: 40,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 8,
+  memoDelete: {
+    padding: 8,
   },
 });
